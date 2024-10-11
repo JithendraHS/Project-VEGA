@@ -59,7 +59,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=0
+AnnotateOrder=-1
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -70,13 +70,47 @@ GenerateClassCluster=0
 DocumentUniqueId=RFHCWNSX
 
 [Document2]
+DocumentPath=Toberemoved_Principal.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=LXYHHTES
+
+[Document3]
+DocumentPath=Project_Vega_Sensors_Schematic.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=KSBIWXWI
+
+[Document4]
 DocumentPath=Principal_Node.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=5
+AnnotateOrder=-1
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -86,7 +120,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SXAOLIQP
 
-[Document3]
+[Document5]
 DocumentPath=Project_Vega.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -103,7 +137,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document4]
+[Document6]
 DocumentPath=Project_Vega.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -118,9 +152,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=LHWVZBVS
+DocumentUniqueId=
 
-[Document5]
+[Document7]
 DocumentPath=Project_Vega.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -137,8 +171,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document6]
-DocumentPath=..\..\..\..\Desktop\Organised Folder\Organised Folder\Client_sheet1.SchDoc
+[Document8]
+DocumentPath=Client_sheet1.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -154,8 +188,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UOWYBSMS
 
-[Document7]
-DocumentPath=..\..\..\..\Desktop\Organised Folder\Organised Folder\Client_Sheet2.SchDoc
+[Document9]
+DocumentPath=Client_Sheet2.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -171,8 +205,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JZGXBIVB
 
-[Document8]
-DocumentPath=..\..\..\..\Desktop\Organised Folder\Organised Folder\Client_Sheet3.SchDoc
+[Document10]
+DocumentPath=Client_Sheet3.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -188,8 +222,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GXEEMHMW
 
-[Document9]
-DocumentPath=..\..\..\..\Desktop\Organised Folder\Organised Folder\Project_Vega_Sensors_Schematic.SchDoc
+[Document11]
+DocumentPath=Project_Node_Sensors.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -203,7 +237,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=KSBIWXWI
+DocumentUniqueId=
 
 [Configuration1]
 Name=Sources
