@@ -70,23 +70,6 @@ GenerateClassCluster=0
 DocumentUniqueId=RFHCWNSX
 
 [Document2]
-DocumentPath=Client_sheet1.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=2
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=PVLQQTXO
-
-[Document3]
 DocumentPath=Principal_Node.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -103,7 +86,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SXAOLIQP
 
-[Document4]
+[Document3]
 DocumentPath=Project_Vega.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -120,7 +103,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document5]
+[Document4]
 DocumentPath=Project_Vega.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -137,7 +120,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LHWVZBVS
 
-[Document6]
+[Document5]
 DocumentPath=Project_Vega.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -154,7 +137,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document7]
+[Document6]
 DocumentPath=..\..\..\..\Desktop\Organised Folder\Organised Folder\Client_sheet1.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -169,9 +152,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=UOWYBSMS
 
-[Document8]
+[Document7]
 DocumentPath=..\..\..\..\Desktop\Organised Folder\Organised Folder\Client_Sheet2.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -186,9 +169,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=JZGXBIVB
 
-[Document9]
+[Document8]
 DocumentPath=..\..\..\..\Desktop\Organised Folder\Organised Folder\Client_Sheet3.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -205,7 +188,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GXEEMHMW
 
-[Document10]
+[Document9]
 DocumentPath=..\..\..\..\Desktop\Organised Folder\Organised Folder\Project_Vega_Sensors_Schematic.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -220,7 +203,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=KSBIWXWI
 
 [Configuration1]
 Name=Sources
