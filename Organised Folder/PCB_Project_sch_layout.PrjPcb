@@ -70,23 +70,6 @@ GenerateClassCluster=0
 DocumentUniqueId=RFHCWNSX
 
 [Document2]
-DocumentPath=Toberemoved_Principal.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=LXYHHTES
-
-[Document3]
 DocumentPath=Project_Vega_Sensors_Schematic.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -103,7 +86,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KSBIWXWI
 
-[Document4]
+[Document3]
 DocumentPath=Principal_Node.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -120,7 +103,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SXAOLIQP
 
-[Document5]
+[Document4]
 DocumentPath=Project_Vega.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -137,7 +120,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document6]
+[Document5]
 DocumentPath=Project_Vega.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -154,7 +137,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document7]
+[Document6]
 DocumentPath=Project_Vega.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -171,7 +154,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document8]
+[Document7]
 DocumentPath=Client_sheet1.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -188,7 +171,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UOWYBSMS
 
-[Document9]
+[Document8]
 DocumentPath=Client_Sheet2.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -205,7 +188,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JZGXBIVB
 
-[Document10]
+[Document9]
 DocumentPath=Client_Sheet3.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -222,7 +205,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GXEEMHMW
 
-[Document11]
+[Document10]
 DocumentPath=Project_Node_Sensors.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -237,7 +220,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=QLAOTMUF
 
 [Configuration1]
 Name=Sources
