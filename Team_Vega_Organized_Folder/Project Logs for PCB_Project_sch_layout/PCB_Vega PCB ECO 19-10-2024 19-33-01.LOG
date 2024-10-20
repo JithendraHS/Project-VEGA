@@ -1,0 +1,39 @@
+Removed Pin From Net: NetName=NetC40_1 Pin=C44-1
+Removed Pin From Net: NetName=GND Pin=C44-2
+Change Component Footprint: Designator=C40 Old Footprint=CAPC1608X90 New Footprint=0402_Passive_Capacitor
+Change Component Footprint: Designator=C44 Old Footprint=CAPC1608X90 New Footprint=0402_Passive_Capacitor
+Change Component Footprint: Designator=C45 Old Footprint=CAPC1608X90 New Footprint=0402_Passive_Capacitor
+Change Component Footprint: Designator=L9 Old Footprint=INDC1608X95N New Footprint=0402_Inductor
+Change Component Comment : Designator=C40 Old Comment=18pF New Comment=1uF
+Change component parameters: Designator = "C40" ("C40"); Footprint = "CAPC1608X90"; UniqueID = "\BGJFKGFM" ("\BGJFKGFM")
+Change component parameters (AddParameter): Name = "Datasheet"; Value = "https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LCSC Part#"; Value = "C52923"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MFR Part #"; Value = "CL05A105KA5NQNC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Basic"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "18pF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C44" ("C44"); Footprint = "CAPC1608X90"; UniqueID = "\SYJJADRR" ("\SYJJADRR")
+Change component parameters (AddParameter): Name = "Datasheet"; Value = "https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LCSC Part#"; Value = "C52923"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MFR Part #"; Value = "CL05A105KA5NQNC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Basic"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C45" ("C45"); Footprint = "CAPC1608X90"; UniqueID = "\UJCMKLTS" ("\UJCMKLTS")
+Change component parameters (AddParameter): Name = "Datasheet"; Value = "https://datasheet.lcsc.com/szlcsc/Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LCSC Part#"; Value = "C52923"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MFR Part #"; Value = "CL05A105KA5NQNC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Basic"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Component: Footprint Not Found RES_0603_1608X06
+Added Pin To Net: NetName=GND Pin=C44-1
+Added Pin To Net: NetName=NetC40_1 Pin=C44-2
+Add Pin To Net: Unknown Pin: Pin R13-1
+Add Pin To Net: Unknown Pin: Pin R13-2
+Add Pin To Net: Unknown Pin: Pin R29-1
+Add Pin To Net: Unknown Pin: Pin R29-2
+Add Pin To Net: Unknown Pin: Pin R30-1
+Add Pin To Net: Unknown Pin: Pin R30-2
+Add Class Member: Failed to add class member : Component R13 5.1K 1%
+Add Class Member: Failed to add class member : Component R29 5.1K 1%
+Add Class Member: Failed to add class member : Component R30 5.1K 1%

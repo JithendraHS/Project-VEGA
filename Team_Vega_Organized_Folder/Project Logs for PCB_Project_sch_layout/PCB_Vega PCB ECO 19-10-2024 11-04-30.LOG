@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=5V0_VDD_LCD Pin=C32-1
+Removed Pin From Net: NetName=GND Pin=C32-2
+Change Footprint: Footprint Not Found CAPC1608X90
+Change component parameters: Designator = "C32" ("C32"); Footprint = "CAP_0805_2MMX1.25MM"; UniqueID = "\GWTJCAWS" ("\GWTJCAWS")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/CC0603KRX7R9BB104/Yageo/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "CC0603KRX7R9BB104"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0603 Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/CC0603KRX7R9BB104/Yageo/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Component: Footprint Not Found RES_0603_1608X06
+Added Pin To Net: NetName=GND Pin=C32-1
+Added Pin To Net: NetName=5V0_VDD_LCD Pin=C32-2
+Add Pin To Net: Unknown Pin: Pin R28-1
+Add Pin To Net: Unknown Pin: Pin R28-2
+Add Pin To Net: Unknown Pin: Pin R29-1
+Add Pin To Net: Unknown Pin: Pin R29-2
+Add Pin To Net: Unknown Pin: Pin R30-1
+Add Pin To Net: Unknown Pin: Pin R30-2
+Add Class Member: Failed to add class member : Component R28 5.1K 1%
+Add Class Member: Failed to add class member : Component R29 5.1K 1%
+Add Class Member: Failed to add class member : Component R30 5.1K 1%

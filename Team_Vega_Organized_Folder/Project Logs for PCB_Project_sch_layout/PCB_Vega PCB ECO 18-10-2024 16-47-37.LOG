@@ -1,0 +1,91 @@
+Removed Pin From Net: NetName=NetC30_2 Pin=P1-9
+Removed Pin From Net: NetName=5V0_VDD_LCD Pin=P1-10
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Footprint: Footprint Not Found TP
+Change Component Comment : Designator=C32 Old Comment=10uF 25V X5R 0805 New Comment=10uF
+Change Component Comment : Designator=R22 Old Comment=140 ohm 1 % New Comment=0 ohm 1 %
+Change Component Comment : Designator=R23 Old Comment=140 ohm 1 % New Comment=0 ohm 1 %
+Change Component Comment : Designator=R24 Old Comment=140 ohm 1 % New Comment=0 ohm 1 %
+Change Component Comment : Designator=R25 Old Comment=140 ohm 1 % New Comment=0 ohm 1 %
+Change Component Comment : Designator=R26 Old Comment=140 ohm 1 % New Comment=0 ohm 1 %
+Change Component Comment : Designator=R17 Old Comment=140 ohm 1 % New Comment=0R 1 %
+Change Component Comment : Designator=R16 Old Comment=140 ohm 1 % New Comment=10Kohm 1 %
+Change Component Comment : Designator=R18 Old Comment=140 ohm 1 % New Comment=10Kohm 1 %
+Change Component Comment : Designator=R19 Old Comment=140 ohm 1 % New Comment=10Kohm 1 %
+Change Component Comment : Designator=R20 Old Comment=140 ohm 1 % New Comment=10Kohm 1 %
+Change Component Comment : Designator=R21 Old Comment=140 ohm 1 % New Comment=10Kohm 1 %
+Change Component Description : Designator=U5 Old Description=Pressure sensor New Description=No Description Available
+Change component parameters: Designator = "U4" ("U4"); Footprint = "XDCR_BMI270"; UniqueID = "\WJNNMSAJ" ("\WJNNMSAJ")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/BMI270/Bosch+Sensortec/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Digi-Key_Part_Number"; Value = "828-1091-2-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Bosch Sensortec"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "BMI270"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "LGA-14 Bosch Sensortec"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/BMI270/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/BMI270/Bosch+Sensortec/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "U5" ("U5"); Footprint = "QFN10_BMP581_BOS-M"; UniqueID = "\YHOOIBSS" ("\YHOOIBSS")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Bosch Sensortec"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "U6" ("U6"); Footprint = "BGA6N60X35P2X3_85X94X22N"; UniqueID = "\UYLEQDPC" ("\UYLEQDPC")
+Change component parameters (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/OPT3007YMFR/Texas+Instruments/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "OPT3007YMFR"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "PICOSTAR-6 Texas Instruments"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/OPT3007YMFR/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/OPT3007YMFR/Texas+Instruments/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Component: Footprint Not Found RES_0603_1608X06
+Added Pin To Net: NetName=NetC30_2 Pin=P1-5
+Added Pin To Net: NetName=5V0_VDD_LCD Pin=P1-6
+Added Pin To Net: NetName=5V0_VDD_LCD Pin=P1-7
+Added Pin To Net: NetName=5V0_VDD_LCD Pin=P1-8
+Added Pin To Net: NetName=GND Pin=P1-9
+Added Pin To Net: NetName=GND Pin=P1-10
+Add Pin To Net: Unknown Pin: Pin R28-1
+Add Pin To Net: Unknown Pin: Pin R28-2
+Add Pin To Net: Unknown Pin: Pin R29-1
+Add Pin To Net: Unknown Pin: Pin R29-2
+Add Pin To Net: Unknown Pin: Pin R30-1
+Add Pin To Net: Unknown Pin: Pin R30-2
+Added Pin To Net: NetName=NetP1_1 Pin=P1-1
+Added Pin To Net: NetName=NetP1_1 Pin=TP8-TP
+Added Pin To Net: NetName=NetP1_1 Pin=U3-1
+Added Net: Name=NetP1_1
+Added Pin To Net: NetName=NetP1_2 Pin=P1-2
+Added Pin To Net: NetName=NetP1_2 Pin=TP9-TP
+Added Pin To Net: NetName=NetP1_2 Pin=U3-4
+Added Net: Name=NetP1_2
+Added Pin To Net: NetName=NetP1_3 Pin=P1-3
+Added Pin To Net: NetName=NetP1_3 Pin=TP10-TP
+Added Pin To Net: NetName=NetP1_3 Pin=U3-2
+Added Net: Name=NetP1_3
+Added Pin To Net: NetName=NetP1_4 Pin=P1-4
+Added Pin To Net: NetName=NetP1_4 Pin=TP11-TP
+Added Pin To Net: NetName=NetP1_4 Pin=U3-16
+Added Net: Name=NetP1_4
+Add Class Member: Failed to add class member : Component R28 5.1K 1%
+Add Class Member: Failed to add class member : Component R29 5.1K 1%
+Add Class Member: Failed to add class member : Component R30 5.1K 1%

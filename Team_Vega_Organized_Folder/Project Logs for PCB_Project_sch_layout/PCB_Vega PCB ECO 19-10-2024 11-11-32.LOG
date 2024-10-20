@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=5V0_VDD_LCD Pin=R26-2
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Pin To Net: Unknown Pin: Pin R28-1
+Add Pin To Net: Unknown Pin: Pin R28-2
+Add Pin To Net: Unknown Pin: Pin R29-1
+Add Pin To Net: Unknown Pin: Pin R29-2
+Add Pin To Net: Unknown Pin: Pin R30-1
+Add Pin To Net: Unknown Pin: Pin R30-2
+Change Net Name : Old Net Name=5V0_VDD_LCD New Net Name=5V_VDD_LCD
+Added Pin To Net: NetName=5V0_VDD_LCD Pin=R26-2
+Added Net: Name=5V0_VDD_LCD
+Add Class Member: Failed to add class member : Component R28 5.1K 1%
+Add Class Member: Failed to add class member : Component R29 5.1K 1%
+Add Class Member: Failed to add class member : Component R30 5.1K 1%
+Added Rule: Name=Schematic Supply Nets_7

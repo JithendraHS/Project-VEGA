@@ -1,0 +1,13 @@
+Change Footprint: Cannot match pads with new footprint in component :U2 Footprint:QFN50P350X350X100-21N - duplicate
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Component: Footprint Not Found RES_0603_1608X06
+Add Pin To Net: Unknown Pin: Pin R13-1
+Add Pin To Net: Unknown Pin: Pin R13-2
+Add Pin To Net: Unknown Pin: Pin R29-1
+Add Pin To Net: Unknown Pin: Pin R29-2
+Add Pin To Net: Unknown Pin: Pin R30-1
+Add Pin To Net: Unknown Pin: Pin R30-2
+Add Class Member: Failed to add class member : Component R13 5.1K 1%
+Add Class Member: Failed to add class member : Component R29 5.1K 1%
+Add Class Member: Failed to add class member : Component R30 5.1K 1%
