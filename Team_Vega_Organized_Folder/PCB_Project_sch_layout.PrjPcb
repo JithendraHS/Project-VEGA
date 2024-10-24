@@ -237,7 +237,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=WPLOTHIK
 
 [Document12]
 DocumentPath=Project_Vega.SchLib
@@ -254,7 +254,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=LHWVZBVS
 
 [Document13]
 DocumentPath=PCB_Vega.PcbDoc
@@ -272,6 +272,10 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KSHSDYMW
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for PCB_Project_sch_layout\Design Rule Check - PCB_Vega.html
+DItemRevisionGUID=
 
 [Configuration1]
 Name=Sources

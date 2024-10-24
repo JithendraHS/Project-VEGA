@@ -1,0 +1,97 @@
+Removed Pin From Net: NetName=VCC_BG Pin=R13-1
+Removed Pin From Net: NetName=VCC_BG Pin=R29-1
+Removed Pin From Net: NetName=NetR35_1 Pin=SW2-1
+Removed Pin From Net: NetName=NetR34_2 Pin=SW3-1
+Change Component Footprint: Designator=L1 Old Footprint=IND_LPS4018-223MRC New Footprint=IND_LPS4018-103MRB
+Change component parameters: Designator = "L1" ("L1"); Footprint = "IND_LPS4018-223MRC"; UniqueID = "\RGSNVBHU" ("\RGSNVBHU")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/LPS4018-103MRB/Coilcraft/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Coilcraft"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "LPS4018-103MRB"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/LPS4018-103MRB/Coilcraft/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=H5(HOLE_#4)
+Added Component: Designator=H6(HOLE_#4)
+Added Component: Designator=H7(HOLE_#4)
+Added Component: Designator=H8(HOLE_#4)
+Added Component: Designator=H9(2-PIN_MALE_HEADER_01-IN)
+Add component (AddParameter): Name = "Category"; Value = "Connectors, Interconnects"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Color"; Value = "Black"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "https://media.digikey.com/PDF/Data%20Sheets/Sullins%20PDFs/xRxCzzzSxxN-RC_ST_11635-B.pdf?src-supplier=Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://media.digikey.com/PDF/Data%20Sheets/Sullins%20PDFs/xRxCzzzSxxN-RC_ST_11635-B.pdf?src-supplier=Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Connector Type"; Value = "Header, Unshrouded, Breakaway"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Finish"; Value = "Gold"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Finish Thickness"; Value = "Flash"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Mating Length"; Value = "0.230" (5.84mm)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Type"; Value = "Male Pin"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Family"; Value = "Rectangular Connectors - Headers, Male Pins"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Fastening Type"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Features"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Sullins"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "PRPC002SAAN-RC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Type"; Value = "Through Hole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Positions"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Positions Loaded"; Value = "All"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Rows"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Online Catalog"; Value = "0.100" (2.54mm) Pitch Connector Headers"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Other Names"; Value = "S9510E-02  S9510E-02-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Bulk"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "0.100" (2.54mm)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pricing 1"; Value = "1=0.08, 10=0.073, 25=0.054, 50=0.0464, 100=0.0449, 250=0.0387, 500=0.0372 (USD)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Row Spacing"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Standard Package"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Stock 1"; Value = "42739"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "S1011EC-02-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Termination"; Value = "Solder"; VariantName = "[No Variations]"
+Added Component: Designator=H10(HOLE_#4)
+Added Component: Designator=H11(HOLE_#4)
+Added Component: Designator=H12(HOLE_#4)
+Added Component: Designator=H13(HOLE_#4)
+Added Component: Designator=R33(RES_0603)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "RC0603JR-070RL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R36(RES_0603)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "RC0603JR-070RL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=H5-1
+Added Pin To Net: NetName=GND Pin=H6-1
+Added Pin To Net: NetName=GND Pin=H7-1
+Added Pin To Net: NetName=GND Pin=H8-1
+Added Pin To Net: NetName=VCC_BG Pin=H9-1
+Added Pin To Net: NetName=GND Pin=H10-1
+Added Pin To Net: NetName=GND Pin=H11-1
+Added Pin To Net: NetName=GND Pin=H12-1
+Added Pin To Net: NetName=GND Pin=H13-1
+Added Pin To Net: NetName=VCOM_RX_BG Pin=R33-1
+Added Pin To Net: NetName=VCOM_TX_BG Pin=R36-1
+Added Pin To Net: NetName=NetR33_2 Pin=R33-2
+Added Pin To Net: NetName=NetR33_2 Pin=SW3-1
+Added Net: Name=NetR33_2
+Added Pin To Net: NetName=NetR36_2 Pin=R36-2
+Added Pin To Net: NetName=NetR36_2 Pin=SW2-1
+Added Net: Name=NetR36_2
+Added Pin To Net: NetName=PB_PULLUP Pin=H9-2
+Added Pin To Net: NetName=PB_PULLUP Pin=R13-1
+Added Pin To Net: NetName=PB_PULLUP Pin=R29-1
+Added Net: Name=PB_PULLUP
+Added Member To Class: ClassName=Input_power Member=Component H5 #4 Hole
+Added Member To Class: ClassName=Input_power Member=Component H6 #4 Hole
+Added Member To Class: ClassName=Input_power Member=Component H7 #4 Hole
+Added Member To Class: ClassName=Input_power Member=Component H8 #4 Hole
+Added Member To Class: ClassName=Input_power Member=Component H9 0.1" M Header
+Added Member To Class: ClassName=Client_Node_1 Member=Component H10 #4 Hole
+Added Member To Class: ClassName=Client_Node_1 Member=Component H11 #4 Hole
+Added Member To Class: ClassName=Client_Node_1 Member=Component H12 #4 Hole
+Added Member To Class: ClassName=Client_Node_1 Member=Component H13 #4 Hole
+Added Member To Class: ClassName=Principal_Node Member=Component R33 0ohm 1%
+Added Member To Class: ClassName=Principal_Node Member=Component R36 0ohm 1%

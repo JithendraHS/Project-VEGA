@@ -1,0 +1,7 @@
+Change Component Comment : Designator=C13 Old Comment=1.9pF New Comment=0.9pF
+Change Component Comment : Designator=R28 Old Comment=140 Ohm 1% New Comment=0E Ohm 1%
+Added Pin To Net: NetName=5V Pin=U1-1
+Added Pin To Net: NetName=NetC30_2 Pin=U1-4
+Added Pin To Net: NetName=VCC_BG Pin=U1-8
+Added Member To Class: ClassName=Project_Node_Sensors Member=Component C32 10uF
+Added Member To Class: ClassName=Project_Node_Sensors Member=Component P1 FPC/FFC -5051101092
