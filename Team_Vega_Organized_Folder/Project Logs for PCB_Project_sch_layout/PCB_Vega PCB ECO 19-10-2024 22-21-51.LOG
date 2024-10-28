@@ -1,4 +1,0 @@
-Removed Pin From Net: NetName=I2C0_SCK Pin=TP13-TP
-Removed Pin From Net: NetName=I2C0_SDA Pin=TP14-TP
-Removed Member From Class: ClassName=Project_Node_Sensors Member=TP13
-Removed Member From Class: ClassName=Project_Node_Sensors Member=TP14

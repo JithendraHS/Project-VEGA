@@ -1,4 +1,0 @@
-Added Pin To Net: NetName=NetA1_FEED Pin=A1-FEED
-Added Pin To Net: NetName=GND Pin=A1-GND
-Added Pin To Net: NetName=GND Pin=A1-GND
-Added Member To Class: ClassName=Principal_Node Member=Component A1 FANT 2.4GHz
