@@ -1,0 +1,809 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://D:\Vishwas Navada\Documents\Altium\AD24\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10/30/2024</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">9:41:55 AM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc" class="file"><acronym title="D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc">D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">151</td></tr>
+</table>
+</td>
+</table><a name="IDOUIL2F01SFEMDCW0I4QOB0UURIQ43TAVWXZUGJLZ23Q4ARDOESFL"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOAHD25GO4IS3Z5WFMSUB41ROEKLHO3UUR413NHQV3XHAIKFTIBN">Clearance Constraint (Gap=6mil) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBTPRDU3NBEKBO4PYQT31PHCQOJMRBHVSWVHCK0FPORLLZB3BI33K">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">120</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3IUABJWGHS1VKDFKSABO5JEPZKY4UIQZVUOW4JYOVNKW0ZKOYAB">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">7</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4X0GTQJXTYM0DNULXEW0KXIMB3TU3NROSXPCDGI1WA13DBZYORL">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEP3ULV3JXGK2OKZPGUEKDOZ5TC4JE2JWPN1OFXDT4QCZLCSIHOKN">Width Constraint (Min=6mil) (Max=30mil) (Preferred=6mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDK43Y3ADGLVRLIKXNJUBKAZNPZFHINS5DUJ0N35LBPOISE1YLJU1N">Width Constraint (Min=6mil) (Max=20mil) (Preferred=20mil) (InNet('VCC_BG'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMDRSUPRIAIUTKNJLCESVGURSOP5ONS2R3ENQ5OKA2OJ3B2NGYRI">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOQJYHY5EDMOQEORUOYO2D0FANKHKWBDZ5QYCDGGYWLUZ5D5CXKRJ">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=6mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAWX0DQDS2MDVIJBNHSPE2DOB1F5CYOSFUKZL2QCVLQ0L4QEFOPVL">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0IOLNSLMBMCRP4RL1LYD1HVCKLCCO034BPP5CNFIBMMNO1LBDOKF">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">16</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBWTGTJVNTX1EIA5ED5WVUTFU1OR2DHVX141N0BC4OVLM5JORSAPG">Minimum Solder Mask Sliver (Gap=1mil) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDY1QAH1TGIAPTHGLERKK5FHSTZE5XOQYVPJDG1BKQO2XPVNM1PGND">Silk To Solder Mask (Clearance=1mil) (IsPad),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMGW4IERPJWVCFVAJPQRYOITELPFS1QRUG2IIFXEZX1FADOGPWT4O">Silk to Silk (Clearance=1mil) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDT2N0QPCLYHZWPUHXUEHSS1R2IMJPREKXVWKL13IPI3GNPVDFQP1F">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4FJGFY2JM1IFF0RKPO5EDKPXHFPYJWDQIJ3JVVHBEVUJA4IPJCVH">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">151</td>
+</tr>
+</table><br><a name="IDBTPRDU3NBEKBO4PYQT31PHCQOJMRBHVSWVHCK0FPORLLZB3BI33K"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1623.4mil|Location2.X=1666.6mil|Location1.Y=4906.4mil|Location2.Y=4949.6mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1623.4mil|Location2.X=1666.6mil|Location1.Y=4906.4mil|Location2.Y=4949.6mil|Absolute=True">Short-Circuit Constraint: Between Pad A1-FEED(645mil,3794.5mil) on Top Layer And Pad A1-GND(867mil,3975.5mil) on Top Layer Location : [X = 1645mil][Y = 4928mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3683.4mil|Location2.X=3726.6mil|Location1.Y=4856.4mil|Location2.Y=4899.6mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3683.4mil|Location2.X=3726.6mil|Location1.Y=4856.4mil|Location2.Y=4899.6mil|Absolute=True">Short-Circuit Constraint: Between Pad A2-FEED(2705mil,3744.5mil) on Top Layer And Pad A2-GND(2927mil,3925.5mil) on Top Layer Location : [X = 3705mil][Y = 4878mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad BT1-P1(3135.48mil,2398mil) on Bottom Layer And Polygon Region (8 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad BT1-P2(2270.52mil,2398mil) on Bottom Layer And Polygon Region (8 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H1-1(1830.63mil,171.654mil) on Multi-Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H2-1(116.63mil,158.654mil) on Multi-Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H3-1(563mil,1989mil) on Bottom Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H3-10(403mil,1789mil) on Bottom Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H3-3(563mil,1939mil) on Bottom Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H3-4(403mil,1939mil) on Bottom Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H3-5(563mil,1889mil) on Bottom Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H3-6(403mil,1889mil) on Bottom Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H3-7(563mil,1839mil) on Bottom Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H3-8(403mil,1839mil) on Bottom Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H3-9(563mil,1789mil) on Bottom Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H9-1(1310mil,599mil) on Multi-Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad H9-2(1410mil,599mil) on Multi-Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J2-1(3503.425mil,2355mil) on Multi-Layer And Polygon Region (8 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J2-3(3306.575mil,2355mil) on Multi-Layer And Polygon Region (8 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J3-1(1856mil,1398mil) on Multi-Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J3-3(1856mil,1201.15mil) on Multi-Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J4-1(1856mil,1872.85mil) on Multi-Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J4-3(1856mil,1676mil) on Multi-Layer And Polygon Region (31 hole(s)) Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (1020.5mil,1895.5mil)(1047mil,1869mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (1020.5mil,2192mil)(1023.5mil,2189mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2020.556mil|Location2.X=2024.148mil|Location1.Y=3154.432mil|Location2.Y=3158.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2020.556mil|Location2.X=2024.148mil|Location1.Y=3154.432mil|Location2.Y=3158.024mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (1023.5mil,2189mil)(1042.03mil,2189mil) on Bottom Layer Location : [X = 2022.352mil][Y = 3156.228mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2044.056mil|Location2.X=2047.648mil|Location1.Y=2834.433mil|Location2.Y=2838.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2044.056mil|Location2.X=2047.648mil|Location1.Y=2834.433mil|Location2.Y=2838.024mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (1047mil,1869mil)(1071mil,1869mil) on Bottom Layer Location : [X = 2045.852mil][Y = 2836.228mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2050.852mil|Location2.X=2054.444mil|Location1.Y=2906.476mil|Location2.Y=2910.067mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2050.852mil|Location2.X=2054.444mil|Location1.Y=2906.476mil|Location2.Y=2910.067mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (1051.5mil,1935.5mil)(1070mil,1917mil) on Bottom Layer Location : [X = 2052.648mil][Y = 2908.272mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2500.273mil|Location2.X=2503.865mil|Location1.Y=2820.354mil|Location2.Y=2823.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2500.273mil|Location2.X=2503.865mil|Location1.Y=2820.354mil|Location2.Y=2823.945mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (1457.215mil,1811.215mil)(1499.297mil,1853.297mil) on Bottom Layer Location : [X = 2502.069mil][Y = 2822.149mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2500.273mil|Location2.X=2503.865mil|Location1.Y=2820.353mil|Location2.Y=2823.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2500.273mil|Location2.X=2503.865mil|Location1.Y=2820.353mil|Location2.Y=2823.945mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (1499.297mil,1853.297mil)(1499.297mil,1870.297mil) on Bottom Layer Location : [X = 2502.069mil][Y = 2822.149mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1340.488mil|Location2.X=1344.079mil|Location1.Y=2881.34mil|Location2.Y=2884.932mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1340.488mil|Location2.X=1344.079mil|Location1.Y=2881.34mil|Location2.Y=2884.932mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (324.635mil,1910.365mil)(341.135mil,1910.365mil) on Bottom Layer Location : [X = 1342.283mil][Y = 2883.136mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1340.488mil|Location2.X=1344.079mil|Location1.Y=2881.341mil|Location2.Y=2884.932mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1340.488mil|Location2.X=1344.079mil|Location1.Y=2881.341mil|Location2.Y=2884.932mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (341.135mil,1910.365mil)(362.5mil,1889mil) on Bottom Layer Location : [X = 1342.283mil][Y = 2883.136mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1463.852mil|Location2.X=1467.444mil|Location1.Y=2904.433mil|Location2.Y=2908.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1463.852mil|Location2.X=1467.444mil|Location1.Y=2904.433mil|Location2.Y=2908.024mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (403mil,1939mil)(464.5mil,1939mil) on Bottom Layer Location : [X = 1465.648mil][Y = 2906.228mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1506.556mil|Location2.X=1510.148mil|Location1.Y=2688.433mil|Location2.Y=2692.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1506.556mil|Location2.X=1510.148mil|Location1.Y=2688.433mil|Location2.Y=2692.024mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (443.5mil,1789mil)(509.5mil,1723mil) on Bottom Layer Location : [X = 1508.352mil][Y = 2690.228mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1463.852mil|Location2.X=1467.444mil|Location1.Y=2904.433mil|Location2.Y=2908.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1463.852mil|Location2.X=1467.444mil|Location1.Y=2904.433mil|Location2.Y=2908.024mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (464.5mil,1939mil)(486.5mil,1961mil) on Bottom Layer Location : [X = 1465.648mil][Y = 2906.228mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1500.852mil|Location2.X=1504.444mil|Location1.Y=2830.976mil|Location2.Y=2834.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1500.852mil|Location2.X=1504.444mil|Location1.Y=2830.976mil|Location2.Y=2834.567mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (482mil,1860mil)(501.5mil,1860mil) on Bottom Layer Location : [X = 1502.648mil][Y = 2832.772mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1481.933mil|Location2.X=1485.524mil|Location1.Y=2957.005mil|Location2.Y=2960.596mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1481.933mil|Location2.X=1485.524mil|Location1.Y=2957.005mil|Location2.Y=2960.596mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (486.5mil,1961mil)(486.5mil,1987.652mil) on Bottom Layer Location : [X = 1483.728mil][Y = 2958.8mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (486.5mil,1987.652mil)(509.348mil,2010.5mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1496.321mil|Location2.X=1499.913mil|Location1.Y=2863.309mil|Location2.Y=2866.9mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1496.321mil|Location2.X=1499.913mil|Location1.Y=2863.309mil|Location2.Y=2866.9mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (491.141mil,1906mil)(499.265mil,1897.876mil) on Bottom Layer Location : [X = 1498.117mil][Y = 2865.105mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1496.321mil|Location2.X=1499.913mil|Location1.Y=2863.309mil|Location2.Y=2866.9mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1496.321mil|Location2.X=1499.913mil|Location1.Y=2863.309mil|Location2.Y=2866.9mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (499.265mil,1897.876mil)(554.124mil,1897.876mil) on Bottom Layer Location : [X = 1498.117mil][Y = 2865.105mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1500.852mil|Location2.X=1504.444mil|Location1.Y=2830.976mil|Location2.Y=2834.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1500.852mil|Location2.X=1504.444mil|Location1.Y=2830.976mil|Location2.Y=2834.567mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (501.5mil,1860mil)(522.5mil,1839mil) on Bottom Layer Location : [X = 1502.648mil][Y = 2832.772mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (509.348mil,2010.5mil)(716.853mil,2010.5mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1506.556mil|Location2.X=1510.148mil|Location1.Y=2688.433mil|Location2.Y=2692.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1506.556mil|Location2.X=1510.148mil|Location1.Y=2688.433mil|Location2.Y=2692.024mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (509.5mil,1723mil)(592mil,1723mil) on Bottom Layer Location : [X = 1508.352mil][Y = 2690.228mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1657.352mil|Location2.X=1660.944mil|Location1.Y=2859.976mil|Location2.Y=2863.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1657.352mil|Location2.X=1660.944mil|Location1.Y=2859.976mil|Location2.Y=2863.567mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (563mil,1889mil)(658mil,1889mil) on Bottom Layer Location : [X = 1659.148mil][Y = 2861.772mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1685.352mil|Location2.X=1688.944mil|Location1.Y=2906.976mil|Location2.Y=2910.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1685.352mil|Location2.X=1688.944mil|Location1.Y=2906.976mil|Location2.Y=2910.567mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (566mil,1936mil)(686mil,1936mil) on Bottom Layer Location : [X = 1687.148mil][Y = 2908.772mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1632.852mil|Location2.X=1636.444mil|Location1.Y=2956.976mil|Location2.Y=2960.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1632.852mil|Location2.X=1636.444mil|Location1.Y=2956.976mil|Location2.Y=2960.567mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (566mil,1986mil)(633.5mil,1986mil) on Bottom Layer Location : [X = 1634.648mil][Y = 2958.772mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1606.976mil|Location2.X=1610.567mil|Location1.Y=2508.071mil|Location2.Y=2511.662mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1606.976mil|Location2.X=1610.567mil|Location1.Y=2508.071mil|Location2.Y=2511.662mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (594mil,1529.015mil)(606mil,1541.015mil) on Bottom Layer Location : [X = 1608.772mil][Y = 2509.867mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1606.976mil|Location2.X=1610.567mil|Location1.Y=2508.071mil|Location2.Y=2511.662mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1606.976mil|Location2.X=1610.567mil|Location1.Y=2508.071mil|Location2.Y=2511.662mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (606mil,1541.015mil)(606mil,1584.859mil) on Bottom Layer Location : [X = 1608.772mil][Y = 2509.867mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (633.5mil,1986mil)(636.5mil,1983mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.556mil|Location2.X=1637.148mil|Location1.Y=2948.432mil|Location2.Y=2952.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.556mil|Location2.X=1637.148mil|Location1.Y=2948.432mil|Location2.Y=2952.024mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (636.5mil,1983mil)(656mil,1983mil) on Bottom Layer Location : [X = 1635.352mil][Y = 2950.228mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (658mil,1889mil)(720mil,1827mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (686mil,1936mil)(758mil,1864mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (716.853mil,2010.5mil)(831.853mil,1895.5mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (720mil,1827mil)(969mil,1827mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (758mil,1864mil)(984.985mil,1864mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (831.853mil,1895.5mil)(1020.5mil,1895.5mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2050.852mil|Location2.X=2054.444mil|Location1.Y=2906.476mil|Location2.Y=2910.067mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2050.852mil|Location2.X=2054.444mil|Location1.Y=2906.476mil|Location2.Y=2910.067mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (907.32mil,1935.5mil)(1051.5mil,1935.5mil) on Bottom Layer Location : [X = 2052.648mil][Y = 2908.272mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1972.353mil|Location2.X=1975.945mil|Location1.Y=2693.135mil|Location2.Y=2696.727mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1972.353mil|Location2.X=1975.945mil|Location1.Y=2693.135mil|Location2.Y=2696.727mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (915.857mil,1787.143mil)(975.297mil,1727.703mil) on Bottom Layer Location : [X = 1974.149mil][Y = 2694.931mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2019.852mil|Location2.X=2023.444mil|Location1.Y=3162.976mil|Location2.Y=3166.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2019.852mil|Location2.X=2023.444mil|Location1.Y=3162.976mil|Location2.Y=3166.567mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (933mil,2192mil)(1020.5mil,2192mil) on Bottom Layer Location : [X = 2021.648mil][Y = 3164.772mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (969mil,1827mil)(998mil,1798mil) on Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1972.353mil|Location2.X=1975.945mil|Location1.Y=2693.135mil|Location2.Y=2696.727mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1972.353mil|Location2.X=1975.945mil|Location1.Y=2693.135mil|Location2.Y=2696.727mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (975.297mil,1727.703mil)(992.297mil,1727.703mil) on Bottom Layer Location : [X = 1974.149mil][Y = 2694.931mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1984.338mil|Location2.X=1987.929mil|Location1.Y=2834.976mil|Location2.Y=2838.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1984.338mil|Location2.X=1987.929mil|Location1.Y=2834.976mil|Location2.Y=2838.567mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (984.985mil,1864mil)(994.985mil,1854mil) on Bottom Layer Location : [X = 1986.133mil][Y = 2836.772mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1995.056mil|Location2.X=1998.648mil|Location1.Y=2763.433mil|Location2.Y=2767.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1995.056mil|Location2.X=1998.648mil|Location1.Y=2763.433mil|Location2.Y=2767.024mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Track (998mil,1798mil)(1080mil,1798mil) on Bottom Layer Location : [X = 1996.852mil][Y = 2765.228mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1045mil,2186.03mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1068mil,2083mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1070mil,1917mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1070mil,2138mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1071mil,1869mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1073mil,2024mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1080mil,1798mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1084mil,1972mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (114mil,2217mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1205mil,2448mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1303mil,2358mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1425mil,1779mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1431mil,2125mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1496mil,2069mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (1500mil,1871mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (196mil,2391mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (299mil,2393mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (312mil,1834mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (321mil,1914mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (349mil,2215mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (480mil,1862mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (486.5mil,1961mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (486mil,1906mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (592mil,1723mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (594mil,1528mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (612mil,1596mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (652mil,1789mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (658mil,1981mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (708mil,1521mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (710mil,1599mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (876mil,1752mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (907.32mil,1935.5mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (914mil,1789mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (932mil,2193mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (933mil,1977mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (933mil,2080mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (934mil,2139mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (935mil,1692mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (943.203mil,2030.203mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (993mil,1727mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (31 hole(s)) Bottom Layer And Via (998mil,1854mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4019.161mil|Location2.X=4022.752mil|Location1.Y=3500.241mil|Location2.Y=3503.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4019.161mil|Location2.X=4022.752mil|Location1.Y=3500.241mil|Location2.Y=3503.833mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Track (2991mil,2506mil)(3018.185mil,2533.185mil) on Bottom Layer Location : [X = 4020.957mil][Y = 3502.037mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4019.161mil|Location2.X=4022.752mil|Location1.Y=3500.241mil|Location2.Y=3503.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4019.161mil|Location2.X=4022.752mil|Location1.Y=3500.241mil|Location2.Y=3503.833mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Track (3018.185mil,2533.185mil)(3018.185mil,2620mil) on Bottom Layer Location : [X = 4020.957mil][Y = 3502.037mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4086.976mil|Location2.X=4090.568mil|Location1.Y=3487.056mil|Location2.Y=3490.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4086.976mil|Location2.X=4090.568mil|Location1.Y=3487.056mil|Location2.Y=3490.648mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Track (3023mil,2457mil)(3086mil,2520mil) on Bottom Layer Location : [X = 4088.772mil][Y = 3488.852mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4086.976mil|Location2.X=4090.567mil|Location1.Y=3487.056mil|Location2.Y=3490.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4086.976mil|Location2.X=4090.567mil|Location1.Y=3487.056mil|Location2.Y=3490.648mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Track (3086mil,2520mil)(3086mil,2592mil) on Bottom Layer Location : [X = 4088.772mil][Y = 3488.852mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (2423.558mil,2914mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (2424.558mil,2876mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (2487.558mil,2874mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (2521.065mil,2916.507mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (2630mil,2576mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (2678.646mil,2564.731mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (2991mil,2506mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (3018.185mil,2620mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (3023mil,2457mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (3086mil,2592mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (3272mil,2648mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (8 hole(s)) Bottom Layer And Via (3331mil,2649mil) from Top Layer to Bottom Layer Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID3IUABJWGHS1VKDFKSABO5JEPZKY4UIQZVUOW4JYOVNKW0ZKOYAB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3844.764mil|Location2.X=4136mil|Location1.Y=3730.583mil|Location2.Y=3925mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3844.764mil|Location2.X=4136mil|Location1.Y=3730.583mil|Location2.Y=3925mil|Absolute=True">Un-Routed Net Constraint: Net NetTP18_TP Between Track (2924.994mil,2860.583mil)(2944.764mil,2860.583mil) on Top Layer And Pad TP18-TP(3036mil,2855mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3835.338mil|Location2.X=4076mil|Location1.Y=3624.528mil|Location2.Y=3690mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3835.338mil|Location2.X=4076mil|Location1.Y=3624.528mil|Location2.Y=3690mil|Absolute=True">Un-Routed Net Constraint: Net NetTP20_TP Between Track (2921.558mil,2754.528mil)(2935.338mil,2754.528mil) on Top Layer And Pad TP20-TP(2976mil,2620mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2080.252mil|Location2.X=2296mil|Location1.Y=3097mil|Location2.Y=3342.276mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2080.252mil|Location2.X=2296mil|Location1.Y=3097mil|Location2.Y=3342.276mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (1180.252mil,2227mil)(1196mil,2227mil) on Top Layer And Pad U1-3(1196mil,2272.276mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1513.15mil|Location2.X=1730.228mil|Location1.Y=3114.15mil|Location2.Y=3315.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1513.15mil|Location2.X=1730.228mil|Location1.Y=3114.15mil|Location2.Y=3315.48mil|Absolute=True">Un-Routed Net Constraint: Net VCC_BG Between Track (613.15mil,2218.507mil)(613.15mil,2244.15mil) on Top Layer And Pad U3-27(630.228mil,2245.48mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3808.558mil|Location2.X=4008.81mil|Location1.Y=3503.03mil|Location2.Y=3778.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3808.558mil|Location2.X=4008.81mil|Location1.Y=3503.03mil|Location2.Y=3778.221mil|Absolute=True">Un-Routed Net Constraint: Net NetTP19_TP Between Track (2908.558mil,2624mil)(2908.558mil,2633.03mil) on Top Layer And Track (2741.574mil,2708.221mil)(2908.81mil,2708.221mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3828.564mil|Location2.X=4124.97mil|Location1.Y=3804.975mil|Location2.Y=3993mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3828.564mil|Location2.X=4124.97mil|Location1.Y=3804.975mil|Location2.Y=3993mil|Absolute=True">Un-Routed Net Constraint: Net NetTP17_TP Between Track (2927.006mil,2933.417mil)(2928.564mil,2934.975mil) on Top Layer And Track (3024.97mil,2923mil)(3034mil,2923mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2972.5mil|Location2.X=3327.5mil|Location1.Y=4415.5mil|Location2.Y=4440.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2972.5mil|Location2.X=3327.5mil|Location1.Y=4415.5mil|Location2.Y=4440.5mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (1985mil,3458mil) from Top Layer to Bottom Layer And Via (2315mil,3458mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAWX0DQDS2MDVIJBNHSPE2DOB1F5CYOSFUKZL2QCVLQ0L4QEFOPVL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4371.375mil|Location2.X=4512.625mil|Location1.Y=3863.375mil|Location2.Y=4004.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4371.375mil|Location2.X=4512.625mil|Location1.Y=3863.375mil|Location2.Y=4004.625mil|Absolute=True">Hole Size Constraint: (140mil &gt; 100mil) Pad H10-1(3442mil,2964mil) on Multi-Layer Actual Hole Size = 140mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1393.375mil|Location2.X=1534.625mil|Location1.Y=1069.375mil|Location2.Y=1210.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1393.375mil|Location2.X=1534.625mil|Location1.Y=1069.375mil|Location2.Y=1210.625mil|Absolute=True">Hole Size Constraint: (140mil &gt; 100mil) Pad H5-1(464mil,170mil) on Multi-Layer Actual Hole Size = 140mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2449.918mil|Location2.X=2591.168mil|Location1.Y=2339.202mil|Location2.Y=2480.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2449.918mil|Location2.X=2591.168mil|Location1.Y=2339.202mil|Location2.Y=2480.452mil|Absolute=True">Hole Size Constraint: (140mil &gt; 100mil) Pad H6-1(1520.543mil,1439.827mil) on Multi-Layer Actual Hole Size = 140mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID0IOLNSLMBMCRP4RL1LYD1HVCKLCCO034BPP5CNFIBMMNO1LBDOKF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole To Hole Clearance (Gap=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3028.391mil|Location2.X=3039.641mil|Location1.Y=3385.159mil|Location2.Y=3396.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3028.391mil|Location2.X=3039.641mil|Location1.Y=3385.159mil|Location2.Y=3396.409mil|Absolute=True">Hole To Hole Clearance Constraint: (9.63mil &lt; 10mil) Between Pad Free-0(2034.016mil,2396.284mil) on Multi-Layer And Pad Free-0(2034.016mil,2445.284mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3028.391mil|Location2.X=3039.641mil|Location1.Y=3433.659mil|Location2.Y=3444.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3028.391mil|Location2.X=3039.641mil|Location1.Y=3433.659mil|Location2.Y=3444.909mil|Absolute=True">Hole To Hole Clearance Constraint: (8.63mil &lt; 10mil) Between Pad Free-0(2034.016mil,2445.284mil) on Multi-Layer And Pad Free-0(2034.016mil,2493.284mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=2562.875mil|Location2.Y=2574.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=2562.875mil|Location2.Y=2574.125mil|Absolute=True">Hole To Hole Clearance Constraint: (9.63mil &lt; 10mil) Between Pad Free-0(2035mil,1574mil) on Multi-Layer And Pad Free-0(2035mil,1623mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=2611.375mil|Location2.Y=2622.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=2611.375mil|Location2.Y=2622.625mil|Absolute=True">Hole To Hole Clearance Constraint: (8.63mil &lt; 10mil) Between Pad Free-0(2035mil,1623mil) on Multi-Layer And Pad Free-0(2035mil,1671mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=4174.875mil|Location2.Y=4186.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=4174.875mil|Location2.Y=4186.125mil|Absolute=True">Hole To Hole Clearance Constraint: (9.63mil &lt; 10mil) Between Pad Free-0(2035mil,3186mil) on Multi-Layer And Pad Free-0(2035mil,3235mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=4223.375mil|Location2.Y=4234.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=4223.375mil|Location2.Y=4234.625mil|Absolute=True">Hole To Hole Clearance Constraint: (8.63mil &lt; 10mil) Between Pad Free-0(2035mil,3235mil) on Multi-Layer And Pad Free-0(2035mil,3283mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=1722.875mil|Location2.Y=1734.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=1722.875mil|Location2.Y=1734.125mil|Absolute=True">Hole To Hole Clearance Constraint: (9.63mil &lt; 10mil) Between Pad Free-0(2035mil,734mil) on Multi-Layer And Pad Free-0(2035mil,783mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=1771.375mil|Location2.Y=1782.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.375mil|Location2.X=3040.625mil|Location1.Y=1771.375mil|Location2.Y=1782.625mil|Absolute=True">Hole To Hole Clearance Constraint: (8.63mil &lt; 10mil) Between Pad Free-0(2035mil,783mil) on Multi-Layer And Pad Free-0(2035mil,831mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3138.391mil|Location2.X=3149.641mil|Location1.Y=3386.159mil|Location2.Y=3397.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3138.391mil|Location2.X=3149.641mil|Location1.Y=3386.159mil|Location2.Y=3397.409mil|Absolute=True">Hole To Hole Clearance Constraint: (9.63mil &lt; 10mil) Between Pad Free-0(2144.016mil,2397.284mil) on Multi-Layer And Pad Free-0(2144.016mil,2446.284mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3138.391mil|Location2.X=3149.641mil|Location1.Y=3434.659mil|Location2.Y=3445.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3138.391mil|Location2.X=3149.641mil|Location1.Y=3434.659mil|Location2.Y=3445.909mil|Absolute=True">Hole To Hole Clearance Constraint: (8.63mil &lt; 10mil) Between Pad Free-0(2144.016mil,2446.284mil) on Multi-Layer And Pad Free-0(2144.016mil,2494.284mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=2563.875mil|Location2.Y=2575.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=2563.875mil|Location2.Y=2575.125mil|Absolute=True">Hole To Hole Clearance Constraint: (9.63mil &lt; 10mil) Between Pad Free-0(2145mil,1575mil) on Multi-Layer And Pad Free-0(2145mil,1624mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=2612.375mil|Location2.Y=2623.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=2612.375mil|Location2.Y=2623.625mil|Absolute=True">Hole To Hole Clearance Constraint: (8.63mil &lt; 10mil) Between Pad Free-0(2145mil,1624mil) on Multi-Layer And Pad Free-0(2145mil,1672mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=4175.875mil|Location2.Y=4187.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=4175.875mil|Location2.Y=4187.125mil|Absolute=True">Hole To Hole Clearance Constraint: (9.63mil &lt; 10mil) Between Pad Free-0(2145mil,3187mil) on Multi-Layer And Pad Free-0(2145mil,3236mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=4224.375mil|Location2.Y=4235.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=4224.375mil|Location2.Y=4235.625mil|Absolute=True">Hole To Hole Clearance Constraint: (8.63mil &lt; 10mil) Between Pad Free-0(2145mil,3236mil) on Multi-Layer And Pad Free-0(2145mil,3284mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=1723.875mil|Location2.Y=1735.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=1723.875mil|Location2.Y=1735.125mil|Absolute=True">Hole To Hole Clearance Constraint: (9.63mil &lt; 10mil) Between Pad Free-0(2145mil,735mil) on Multi-Layer And Pad Free-0(2145mil,784mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=1772.375mil|Location2.Y=1783.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=1772.375mil|Location2.Y=1783.625mil|Absolute=True">Hole To Hole Clearance Constraint: (8.63mil &lt; 10mil) Between Pad Free-0(2145mil,784mil) on Multi-Layer And Pad Free-0(2145mil,832mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDBWTGTJVNTX1EIA5ED5WVUTFU1OR2DHVX141N0BC4OVLM5JORSAPG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=1mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3763.606mil|Location2.X=3769.307mil|Location1.Y=3567.09mil|Location2.Y=3572.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3763.606mil|Location2.X=3769.307mil|Location1.Y=3567.09mil|Location2.Y=3572.452mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.083mil &lt; 1mil) Between Pad C46-1(2745.558mil,2585.559mil) on Top Layer And Pad C48-1(2777.999mil,2623mil) on Top Layer [Top Solder] Mask Sliver [0.083mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDY1QAH1TGIAPTHGLERKK5FHSTZE5XOQYVPJDG1BKQO2XPVNM1PGND"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=1mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.229mil|Location2.X=2134.896mil|Location1.Y=1389.167mil|Location2.Y=1390.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.229mil|Location2.X=2134.896mil|Location1.Y=1389.167mil|Location2.Y=1390.833mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Arc (1126mil,420mil) on Top Overlay And Pad R2-2(1122.496mil,404mil) on Top Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1799.789mil|Location2.X=1801.456mil|Location1.Y=2188.157mil|Location2.Y=2189.824mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1799.789mil|Location2.X=1801.456mil|Location1.Y=2188.157mil|Location2.Y=2189.824mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad L1-1(758.864mil,1241.864mil) on Top Layer And Text "U2" (714.016mil,1159.01mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2063.974mil|Location2.X=2065.64mil|Location1.Y=3572.013mil|Location2.Y=3573.679mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2063.974mil|Location2.X=2065.64mil|Location1.Y=3572.013mil|Location2.Y=3573.679mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad SW1-1(1085.307mil,2595.323mil) on Top Layer And Text "*" (1050mil,2576mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4059.974mil|Location2.X=4061.64mil|Location1.Y=4058.013mil|Location2.Y=4059.679mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4059.974mil|Location2.X=4061.64mil|Location1.Y=4058.013mil|Location2.Y=4059.679mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad SW5-1(3081.307mil,3081.323mil) on Top Layer And Text "*" (3046mil,3062mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
