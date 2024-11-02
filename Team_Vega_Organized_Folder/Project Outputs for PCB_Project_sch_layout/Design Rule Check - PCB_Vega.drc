@@ -1,0 +1,70 @@
+Protel Design System Design Rule Check
+PCB File : E:\Fall 2024\LPESD\Workspace Folder_Prudhvi\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc
+Date     : 02-11-2024
+Time     : 11:20:06
+
+Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+   Violation between Short-Circuit Constraint: Between Pad A1-FEED(645mil,3754.5mil) on Top Layer And Pad A1-GND(867mil,3935.5mil) on Top Layer Location : [X = 1645mil][Y = 4888mil]
+   Violation between Short-Circuit Constraint: Between Pad A2-FEED(2701mil,3750.5mil) on Top Layer And Pad A2-GND(2923mil,3931.5mil) on Top Layer Location : [X = 3701mil][Y = 4884mil]
+Rule Violations :2
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net +3V Between Pad BT1-P2(2266.039mil,2430mil) on Bottom Layer And Track (2531.558mil,2698.195mil)(2531.558mil,2756.426mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Via (1985mil,3568mil) from Top Layer to Bottom Layer And Via (2311mil,3565mil) from Top Layer to Bottom Layer 
+Rule Violations :2
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=6mil) (Max=30mil) (Preferred=6mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InNet('3V3_VDD_OPT3007'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InNet('3V3_VDD_BMP581'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=6mil) (Max=20mil) (Preferred=20mil) (InNet('VCC_BG'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=20mil) (Preferred=20mil) (InNet('5V_VDD_LCD'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InNet('3V3_VDD_BMI270'))
+Rule Violations :0
+
+Processing Rule : Routing Topology Rule(Topology=Shortest) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=6mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=150mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=4mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=1mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=1mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=1mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 4
+Waived Violations : 0
+Time Elapsed        : 00:00:02

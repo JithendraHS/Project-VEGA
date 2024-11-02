@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\jithe\OneDrive\Documents\GitHub\Project_Vega\Team_Vega_Organized_Folder\PCB_Vega.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=pcb_vega-roundholes.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=pcb_vega-slotholes.txt|DrillLayers=gtl,gbl
